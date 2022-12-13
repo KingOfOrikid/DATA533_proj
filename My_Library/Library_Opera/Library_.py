@@ -73,7 +73,7 @@ class Library():
                 print("The username is existed, please choose another one!")
                 continue
 
-            password = input("Please input your password: ")
+            password = getpass.getpass("Please input your password: ")
             name = input("Please input your name: ")
             self.data.input_user(username, name, password)
             temp_register = 1
