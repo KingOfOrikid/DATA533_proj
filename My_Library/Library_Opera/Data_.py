@@ -1,19 +1,20 @@
+import json
 class Data():
     def __init__(self):
-        self.user_pass = {'yuki': 'test', 'stu': '123'}
-        self.user_cate = {'yuki': 'admin', 'stu': 'user'}
-        self.user_info = {'yuki': ['cyx'], 'stu': ['cc', 10]}
-        self.book_info = {
-            '1408845687': ['Harry Potter and the Order of the Phoenix', 
-                            'J. K. Rowling',
-                            'As the Order of the Phoenix keeps watch over Harry Potter, troubled times have come to Hogwarts in a year filled with secrets, subterfuge and suspicion. The deliciously dark fifth instalment of Jim Kay\'s inspired reimagining of J.K. Rowling\'s classic series is an epic artistic achievement, featuring over 160 illustrations in an astonishing range of visual styles.',
-                            'position1'],
-            '1492041130': ['Data Science from Scratch: First Principles with Python',
-                        'Joel Grus',
-                        'To really learn data science, you should not only master the tools—data science libraries, frameworks, modules, and toolkits—but also understand the ideas and principles underlying them. Updated for Python 3.6, this second edition of Data Science from Scratch shows you how these tools and algorithms work by implementing them from scratch.',
-                        'position2']
-        }
-        self.book_borrow_info = {'1408845687': [0], '1492041130': [1, 'stu']}
+        with open('My_Library/Library_Opera/data/user_pass.json',encoding="utf-8") as file_obj:
+            self.user_pass=json.load(file_obj)
+        
+        with open('My_Library/Library_Opera/data/user_cate.json',encoding="utf-8") as file_obj:
+            self.user_cate=json.load(file_obj)
+
+        with open('My_Library/Library_Opera/data/user_info.json',encoding="utf-8") as file_obj:
+            self.user_info=json.load(file_obj)
+
+        with open('My_Library/Library_Opera/data/book_info.json',encoding="utf-8") as file_obj:
+            self.book_info=json.load(file_obj)
+
+        with open('My_Library/Library_Opera/data/book_borrow_info.json',encoding="utf-8") as file_obj:
+            self.book_borrow_info=json.load(file_obj)
 
     def get_person_name(self, user):
         return self.user_info[user][0]
@@ -81,13 +82,19 @@ class Data():
         self.user_cate[username] = 'user'
         self.user_info[username] = [name, 10]
 
+        self.save_file("user_pass", self.user_pass)
+        self.save_file("user_cate", self.user_cate)
+        self.save_file("user_info", self.user_info)
+
     def input_book(self, name, isbn, author, discrip, position):
         self.book_info[isbn] = [name, author, discrip, position]
+        self.save_file("book_info", self.book_info)
 
     def change_book_borrow_status(self, isbn, status):
         if isbn in self.book_borrow_info and self.book_borrow_info[isbn][
                 0] != 1:
             self.book_borrow_info[isbn] = status
+            self.save_file("book_borrow_info", self.book_borrow_info)
         else:
             return -1
 
@@ -95,6 +102,7 @@ class Data():
         if isbn in self.book_borrow_info and self.book_borrow_info[isbn][
                 0] == 1:
             self.book_borrow_info[isbn] = status
+            self.save_file("book_borrow_info", self.book_borrow_info)
         else:
             return -1
 
@@ -115,8 +123,15 @@ class Data():
                 if original == self.book_borrow_info[book][1]:
                     self.book_borrow_info[book][1] = change_in
 
+        self.save_file("user_pass", self.user_pass)
+        self.save_file("user_cate", self.user_cate)
+        self.save_file("user_info", self.user_info)
+        self.save_file("book_borrow_info", self.book_borrow_info)
+
     def change_name(self, original, change_in):
         self.user_info[original][0] = change_in
+
+        self.save_file("user_info", self.user_info)
 
     def show_user_info(self):
         print("Username Name Point")
@@ -124,3 +139,8 @@ class Data():
             if len(self.user_info[key]) > 1:
                 print('{}  {}  {}'.format(key, self.user_info[key][0],
                                           self.user_info[key][1]))
+
+    def save_file(self, filename, var):
+        strr = 'My_Library/Library_Opera/data/' + filename + '.json'
+        with open(strr,'w',encoding='utf-8') as file_obj:
+            json.dump(var, file_obj, ensure_ascii=False, indent = 4)
