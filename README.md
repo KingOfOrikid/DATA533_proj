@@ -2,7 +2,7 @@
 
 | Module: Book_System | Desceription |
 | ------ | ------ |
-| search_book  |  Use this ISBN number to search book |
+| search_book  |  Use this ISBN number or book name to search book |
 | all_book | get infromation of all books information |
 | search_position | use the postion of the book to search the inforamtion  |
 
@@ -15,7 +15,7 @@
 
 | Module: Book_User | Desceription |
 | ------ | ------ |
-| borrow_book  | user use ISBN to check if the book is available to borrow  |
+| borrow_book  | user use ISBN to check if the book is available to borrow and borrow the book |
 |  return_book |  user use the ISBN number to return the book |
 |  number_book_log | total number of books that was borrowed out  |
 
@@ -24,7 +24,7 @@
 
 | Module: Person | Desceription |
 | ------ | ------ |
-|  get_username |  retrieve user name of the pers |
+|  get_username |  retrieve user name of the person |
 |  get_name | retrieve name of the person  |
 |  get_category |  retrieve the category of the person |
 
@@ -51,7 +51,7 @@
 |  get_person_info | get and print the person's information  |
 |  get_person_info_num | retrieve the person's information for future use  |
 |  get_book_info |  reteive the book information |
-|  get_book_borrow_info | retrieve the ISBN number of the borrowed book  |
+|  get_book_borrow_info | retrieve the borrowed book information with ISBN  |
 |  get_all_book_borrow_info | get all borrowed book's information  |
 |  get_all_book | get all books' information  |
 |  get_book_info_from_pos | retrieve the book information by the position  |
@@ -62,9 +62,9 @@
 |  input_book |  input a book's inforamtion |
 |  change_book_borrow_status  | change the book's status to lend out |
 |  change_book_return_status  |  change the book's status to returned |
-|  check_book | check the book's inforamtion |
-|  change_user |  update the inforamtion of the user |
-|  change_name | change the user name  |
+|  check_book | check whether the book exists or not |
+|  change_user |  change the user's username |
+|  change_name | change the user's name  |
 |  show_user_info | display the user information  |
 |  save_file | update the information to a json file  |
 
