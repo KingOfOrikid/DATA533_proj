@@ -35,7 +35,7 @@
 |  edit_user_info | enable to edit person’s information|
 
 
-| Module: User | Desceription |
+| User | Desceription |
 | ------ | ------ |
 |  menu  | 3 actions: i)center, ii)borrow return center, iii) book search  |
 | my_info  | retrieve the person’s information  |
