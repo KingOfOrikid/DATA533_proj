@@ -1,35 +1,34 @@
-**Subpackeage: Library_Book_System**
+**Subpackeage: Library_Base**
 
-| Module: Book_System | Desceription |
+#### Module Library_Book_System
+| Book_System | Desceription |
 | ------ | ------ |
 | search_book  |  Use this ISBN number or book name to search book |
 | all_book | get infromation of all books information |
 | search_position | use the postion of the book to search the inforamtion  |
 
-| Module: Book_admin | Desceription |
+| Book_admin | Desceription |
 | ------ | ------ |
 |  input_book | input the book information  |
 |  borrow_book_info |display all the borrowed book information  |
 |  borrow_book_log | admin use the ISBN to record the book information when it's lend out  |
 |  return_book_log | admin use the ISBN to record info when the book was return  |
 
-| Module: Book_User | Desceription |
+|Book_User | Desceription |
 | ------ | ------ |
 | borrow_book  | user use ISBN to check if the book is available to borrow and borrow the book |
 |  return_book |  user use the ISBN number to return the book |
 |  number_book_log | total number of books that was borrowed out  |
 
-**Subpackeage: Library_Person**
-
-
-| Module: Person | Desceription |
+#### Module Library_Person
+| Person | Desceription |
 | ------ | ------ |
 |  get_username |  retrieve user name of the person |
 |  get_name | retrieve name of the person  |
 |  get_category |  retrieve the category of the person |
 
 
-| Module: Admin | Desceription |
+| Admin | Desceription |
 | ------ | ------ |
 | menu  |  choose to take 3 different actions: i)user management, ii)book management, iii) lend/borrow management |
 |  user_info |  show all the user’s information |
@@ -45,7 +44,8 @@
  
 **Subpackeage: Library_Opera**
 
-| Module: Data_ | Desceription |
+#### Module Data_
+| Data | Desceription |
 | ------ | ------ |
 |  get_person_name | retrieve the person's name  |
 |  get_person_info | get and print the person's information  |
@@ -68,8 +68,8 @@
 |  show_user_info | display the user information  |
 |  save_file | update the information to a json file  |
 
-
-| Module: Library_  | Desceription |
+#### Module Library_
+| Library  | Desceription |
 | ------ | ------ |
 |  library_menu  | 3 actions to choose to choose: i)sign in; ii) register; iii) quit|
 |  sign_in |  sign in to account |
